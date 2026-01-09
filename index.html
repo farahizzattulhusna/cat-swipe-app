@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paws & Preferences</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- Love overlay -->
+    <div id="love-overlay">❤️</div>
+
+    <!-- Swipe View -->
+    <div id="swipe-view">
+      <h2 id="swipe-title">CAT SWIPE 🐾</h2>
+      <p class="sub">Choose Your Favourite!!!</p>
+      <div id="cat-stack"></div>
+
+      <div id="buttons">
+        <button id="dislike">
+          ❌ <span>Dislike</span>
+        </button>
+      
+        <button id="like">
+          ❤️ <span>Like</span>
+        </button>
+      
+        <button id="show-liked">
+          💖 <span>Liked</span>
+        </button>
+      </div>
+      
+    </div>
+
+    <!-- Summary View -->
+    <div id="summary-view" style="display:none;">
+      <button id="back-button">⬅ Back</button>
+      <h2>Summary</h2>
+      <p id="total-liked"></p>
+      <p id="total-disliked"></p>
+
+      <h3>Liked Cats:</h3>
+      <div id="liked-images"></div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

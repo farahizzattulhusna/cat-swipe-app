@@ -1,0 +1,193 @@
+/* ---------------------------
+   General Styles
+--------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: url("https://img.freepik.com/free-vector/cat-lover-patterned-background-template_53876-100661.jpg?semt=ais_hybrid&w=740&q=80");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+#swipe-title {
+  font-size: 40px;
+  margin-bottom: 8px;   /* space below title */
+}
+
+.sub {
+  margin-bottom: 15px;  /* space below subtitle */
+}
+
+/* ---------------------------
+   Cat Stack (Swipe View)
+--------------------------- */
+#cat-stack {
+  height: 400px;
+  position: relative;
+}
+
+#cat-stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* ---------------------------
+   Buttons
+--------------------------- */
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#buttons button {
+  flex: 1;
+  height: 60px;
+  border-radius: 35px;
+  border: none;
+  background: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s, background 0.2s;
+}
+
+#buttons button:hover {
+  transform: scale(1.05);
+}
+
+/* Optional color hints */
+#dislike {
+  color: #e74c3c;
+}
+
+#like {
+  color: #e91e63;
+}
+
+#show-liked {
+  color: #9c27b0;
+}
+
+/* ---------------------------
+   Love Animation
+--------------------------- */
+#love-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  font-size: 100px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.show-love {
+  animation: lovePop 0.8s ease forwards;
+}
+
+@keyframes lovePop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+}
+
+/* ---------------------------
+   Summary View
+--------------------------- */
+#summary-view {
+  padding: 10px;
+}
+
+#liked-images {
+  display: flex;
+  flex-wrap: wrap;        /* allow images to wrap to next row */
+  gap: 10px;
+  justify-content: center;
+}
+
+#liked-images img {
+  width: 48%;             /* 2 images per row */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect on liked images */
+#liked-images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Back button */
+#back-button {
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  background: #607d8b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+#back-button:hover {
+  transform: scale(1.05);
+}
+
+/* Summary Text */
+#total-liked,
+#total-disliked {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Responsive: keep 2 per row even on small screens */
+@media (max-width: 500px) {
+  #liked-images img {
+    width: 48%;
+  }
+}
